@@ -2,7 +2,7 @@
     <a href="https://github.com/yiisoft" target="_blank">
         <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
     </a>
-    <h1 align="center">Yii 2 Basic Project Template</h1>
+    <h1 align="center">Yii 2 Starter Template (Basic)</h1>
     <br>
 </p>
 
@@ -13,10 +13,17 @@ The template contains the basic features including user login/logout and a conta
 It includes all commonly used configurations that would allow you to focus on adding new
 features to your application.
 
-Add:
+Add modules:
+~~~
 - Yii2mod RBAC (https://github.com/yii2mod/yii2-rbac)
 - Yii2-adminlte3 from hail812 (https://github.com/hail812/yii2-adminlte3)
 - Yii2-phone-formatter (https://github.com/Myks92/yii2-phone-formatter)
+~~~
+
+Add themes:
+~~~
+themes/basic
+~~~
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/yiisoft/yii2-app-basic.svg)](https://packagist.org/packages/yiisoft/yii2-app-basic)
 [![Total Downloads](https://img.shields.io/packagist/dt/yiisoft/yii2-app-basic.svg)](https://packagist.org/packages/yiisoft/yii2-app-basic)
@@ -34,6 +41,7 @@ DIRECTORY STRUCTURE
       models/             contains model classes
       runtime/            contains files generated during runtime
       tests/              contains various tests for the basic application
+      themes/             contains themes files
       vendor/             contains dependent 3rd-party packages
       views/              contains view files for the Web application
       web/                contains the entry script and Web resources
