@@ -13,6 +13,11 @@ The template contains the basic features including user login/logout and a conta
 It includes all commonly used configurations that would allow you to focus on adding new
 features to your application.
 
+Add:
+- Yii2mod RBAC (https://github.com/yii2mod/yii2-rbac)
+- Yii2-adminlte3 from hail812 (https://github.com/hail812/yii2-adminlte3)
+- Yii2-phone-formatter (https://github.com/Myks92/yii2-phone-formatter)
+
 [![Latest Stable Version](https://img.shields.io/packagist/v/yiisoft/yii2-app-basic.svg)](https://packagist.org/packages/yiisoft/yii2-app-basic)
 [![Total Downloads](https://img.shields.io/packagist/dt/yiisoft/yii2-app-basic.svg)](https://packagist.org/packages/yiisoft/yii2-app-basic)
 [![build](https://github.com/yiisoft/yii2-app-basic/workflows/build/badge.svg)](https://github.com/yiisoft/yii2-app-basic/actions?query=workflow%3Abuild)

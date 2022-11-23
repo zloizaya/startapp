@@ -4,7 +4,10 @@ $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
 
 $config = [
-    'id' => 'basic',
+    'id' => 'Start App for Yii2',
+    'language'=>'ru-RU',
+    'timeZone' => 'Europe/Moscow',
+    'name' => 'Start App for Yii2',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'aliases' => [
@@ -15,16 +18,49 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'P5d19qfXNtcXgON0A4lW_WeqFtqnFwua',
+            'enableCookieValidation' => false,
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
             'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
+        ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+            'defaultRoles' => ['guest', 'user'],
+        ],
+        'assetManager' => [
+            'linkAssets' => true,
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',
+        ],
+        'i18n' => [
+            'translations' => [
+                'yii2mod.rbac' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@yii2mod/rbac/messages',
+                ],
+            ],
+        ],
+        'view' => [
+             'theme' => [
+                 'pathMap' => [
+                    '@app/views' => '@vendor/hail812/yii2-adminlte3/src/views'
+                 ],
+             ],
+        ],
+        'formatter' => [
+            'class' => 'maxdancepro\phoneFormatter\i18n\Formatter',
+            'dateFormat' => 'dd.MM.yyyy',
+            'decimalSeparator' => ',',
+            'thousandSeparator' => ' ',
+            'currencyCode' => 'RUB',
+            'numberFormatterSymbols' => [
+                NumberFormatter::CURRENCY_SYMBOL => 'руб',
+            ]
         ],
         'mailer' => [
             'class' => \yii\symfonymailer\Mailer::class,
@@ -51,6 +87,11 @@ $config = [
         ],
         */
     ],
+    'modules' => [
+        'rbac' => [
+            'class' => 'yii2mod\rbac\Module',
+        ],
+    ],
     'params' => $params,
 ];
 
@@ -65,9 +106,18 @@ if (YII_ENV_DEV) {
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
-        'class' => 'yii\gii\Module',
+        //'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
         //'allowedIPs' => ['127.0.0.1', '::1'],
+        'class' => 'yii\gii\Module',
+        'generators' => [ // here
+            'crud' => [ // generator name
+                'class' => 'yii\gii\generators\crud\Generator', // generator class
+                'templates' => [ // setting for our templates
+                    'yii2-adminlte3' => '@vendor/hail812/yii2-adminlte3/src/gii/generators/crud/default' // template name => path to template
+                ]
+            ]
+        ]
     ];
 }
 
