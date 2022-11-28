@@ -18,6 +18,7 @@ Add modules:
 - Yii2mod RBAC (https://github.com/yii2mod/yii2-rbac)
 - Yii2-adminlte3 from hail812 (https://github.com/hail812/yii2-adminlte3)
 - Yii2-phone-formatter (https://github.com/Myks92/yii2-phone-formatter)
+- Yii2-module-files (https://github.com/floor12/yii2-module-files)
 ~~~
 
 Add themes:
@@ -76,6 +77,7 @@ After install you must run migrations:
 
 ~~~
 php yii migrate/up --migrationPath=@yii/rbac/migrations
+yii migrate --migrationPath=@vendor/floor12/yii2-module-files/src/migrations/
 php yii migrate
 ~~~
 
